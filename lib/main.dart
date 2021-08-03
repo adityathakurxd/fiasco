@@ -1,7 +1,7 @@
-import 'package:fiasco/keys.dart';
 import 'package:fiasco/screens/loginscreen.dart';
 import 'package:fiasco/screens/profilescreen.dart';
 import 'package:fiasco/screens/splashscreen.dart';
+import 'package:fiasco/services/key.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
