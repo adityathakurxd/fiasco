@@ -1,3 +1,4 @@
+import 'package:fiasco/keys.dart';
 import 'package:fiasco/screens/loginscreen.dart';
 import 'package:fiasco/screens/profilescreen.dart';
 import 'package:fiasco/screens/splashscreen.dart';
@@ -8,8 +9,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   Supabase.initialize(
-    url: '[YOUR_SUPABASE_URL]',
-    anonKey: '[YOUR_SUPABASE_ANNON_KEY]',
+    url: supabaseURL,
+    anonKey: supabaseKey,
     authCallbackUrlHostname: 'login-callback',
   );
   runApp(MyApp());
