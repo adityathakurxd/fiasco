@@ -1,18 +1,15 @@
-import 'package:fiasco/screens/loginscreen.dart';
-import 'package:fiasco/screens/profilescreen.dart';
-import 'package:fiasco/screens/splashscreen.dart';
-import 'package:fiasco/services/key.dart';
+import 'package:fiasco/constants.dart';
+import 'package:fiasco/screens/signinscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Supabase.initialize(
-    url: supabaseURL,
-    anonKey: supabaseKey,
-    authCallbackUrlHostname: 'login-callback',
-  );
+  // Supabase.initialize(
+  //   url: supabaseURL,
+  //   anonKey: supabaseKey,
+  //   authCallbackUrlHostname: 'login-callback',
+  // );
   runApp(MyApp());
 }
 
@@ -20,22 +17,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Supabase Flutter',
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.green,
-        accentColor: Colors.green,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light().copyWith(
+        primaryColor: kAccentWhite,
+        accentColor: kPrimaryColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            onPrimary: Colors.white,
-            primary: Colors.green,
+            primary: kPrimaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            elevation: 10.0,
           ),
         ),
       ),
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        '/': (_) => const SplashPage(),
-        '/login': (_) => const LoginPage(),
-        '/account': (_) => const AccountPage(),
+        '/': (_) => const SignInScreen(),
+        // '/login': (_) => const LoginPage(),
+        // '/account': (_) => const AccountPage(),
       },
     );
   }

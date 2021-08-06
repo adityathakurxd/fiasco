@@ -32,7 +32,7 @@
 /build/
 
 #Keys for database
-lib/keys.dart
+lib/services/keys.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
