@@ -26,7 +26,9 @@ class SignInScreen extends StatelessWidget {
           ),
           Center(
             child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/bottomnav');
+                  },
                   child: Container(
                     width: 160,
                     child: Padding(

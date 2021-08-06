@@ -1,15 +1,10 @@
 import 'package:fiasco/constants.dart';
+import 'package:fiasco/screens/bottomnavigation.dart';
 import 'package:fiasco/screens/signinscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Supabase.initialize(
-  //   url: supabaseURL,
-  //   anonKey: supabaseKey,
-  //   authCallbackUrlHostname: 'login-callback',
-  // );
   runApp(MyApp());
 }
 
@@ -33,8 +28,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        '/': (_) => const SignInScreen(),
-        // '/login': (_) => const LoginPage(),
+        '/': (context) => const SignInScreen(),
+        '/bottomnav': (context) => BottomNavigation(),
         // '/account': (_) => const AccountPage(),
       },
     );
