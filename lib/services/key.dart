@@ -1,2 +1,0 @@
-const supabaseURL = 'https://vyunfeimigxlofzxwilq.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyNzk2NjE4MywiZXhwIjoxOTQzNTQyMTgzfQ.piVHazbYVUUpepSu2vZbbpnEia5r-UYKvCulzgtiRNM';
