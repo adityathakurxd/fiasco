@@ -2,6 +2,7 @@ import 'package:fiasco/constants.dart';
 import 'package:fiasco/screens/bottomnavigation.dart';
 import 'package:fiasco/screens/homescreen.dart';
 import 'package:fiasco/screens/signinscreen.dart';
+import 'package:fiasco/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,9 +30,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        '/': (context) => const SignInScreen(),
+        '/': (context) => SplashScreen(),
+        '/signin': (context) => const SignInScreen(),
         '/bottomnav': (context) => BottomNavigation(),
-        '/homescreen': (context) => const HomeScreen(),
       },
     );
   }
