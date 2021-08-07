@@ -1,5 +1,6 @@
 import 'package:fiasco/constants.dart';
 import 'package:fiasco/screens/bottomnavigation.dart';
+import 'package:fiasco/screens/homescreen.dart';
 import 'package:fiasco/screens/signinscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/': (context) => const SignInScreen(),
         '/bottomnav': (context) => BottomNavigation(),
-        // '/account': (_) => const AccountPage(),
+        '/homescreen': (context) => const HomeScreen(),
       },
     );
   }
