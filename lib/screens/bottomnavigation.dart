@@ -1,6 +1,8 @@
 import 'package:fiasco/constants.dart';
+import 'package:fiasco/screens/blogscreen.dart';
 import 'package:fiasco/screens/dashboardscreen.dart';
 import 'package:fiasco/screens/homescreen.dart';
+import 'package:fiasco/screens/profilescreen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -13,8 +15,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   final List<Widget> _widgetOptions = const <Widget>[
     HomeScreen(),
     DashboardScreen(),
-    Text('Blog'),
-    Text('Profile Screen'),
+    BlogScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTap(int index) {
