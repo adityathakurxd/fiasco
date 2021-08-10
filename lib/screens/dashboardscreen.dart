@@ -1,4 +1,5 @@
 import 'package:fiasco/constants.dart';
+import 'package:fiasco/screens/widgets/dashboardwidgets.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -10,27 +11,19 @@ class DashboardScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: kPrimaryColor,
         body: Column(
-         children: [
-           SizedBox(
-             height: 20,
-           ),
-           Row(
-             children: [
-               Container(
-                 decoration: BoxDecoration(
-                     color: Colors.white,
-                     borderRadius: BorderRadius.all(Radius.circular(8)),
-                     boxShadow: [BoxShadow(
-                       color: Colors.grey,
-                       blurRadius: 4.0,
-                     ),]
-                 ),
-                 width: MediaQuery.of(context).size.width/2.4,
-                 height: MediaQuery.of(context).size.height * 0.4/3,
-               )
-             ],
-           )
-         ],
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                DashboardWidget(title: 'Income this month:', money: 5320, percent: 12, image: 'line-chart', profit: true,),
+                DashboardWidget(title: 'Costs this month:', money: 4122, percent: -46, image: 'bar-graph', profit: false,)
+              ],
+            ),
+
+          ],
         ),
       ),
     );
