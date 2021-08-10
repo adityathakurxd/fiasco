@@ -93,44 +93,16 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'This Month:',
-                  style: kLightTitleText,
-                ),
-              ),
-              Column(
-                children: [
-                  ExpenseWidget(
-                    imagePath: imageData[0],
-                    title: 'Mcdonalds',
-                    subtitle: 'Cafe and restaurant',
-                    expense: 20,
-                  ),
-                  ExpenseWidget(
-                    imagePath: imageData[1],
-                    title: 'Iphone 12 Pro',
-                    subtitle: 'Phones and accessories',
-                    expense: 999,
-                  ),
-                  ExpenseWidget(
-                    imagePath: imageData[2],
-                    title: 'Subscription',
-                    subtitle: 'Cinema and entertainment',
-                    expense: 9,
-                  ),
-                  ExpenseWidget(
-                    imagePath: imageData[0],
-                    title: 'Mcdonalds',
-                    subtitle: 'Cafe and Restaurant',
-                    expense: 43,
-                  ),
-                ],
-              ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Text(
+              //     'This Month:',
+              //     style: kLightTitleText,
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -139,8 +111,3 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-List imageData = [
-  'assets/images/mcdonalds.png',
-  'assets/images/apple.png',
-  'assets/images/netflix.png'
-];
