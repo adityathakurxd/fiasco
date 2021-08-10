@@ -1,4 +1,5 @@
 import 'package:fiasco/constants.dart';
+import 'package:fiasco/screens/widgets/expensewidgets.dart';
 import 'package:fiasco/screens/widgets/homewidgets.dart';
 import 'package:flutter/material.dart';
 
@@ -9,62 +10,137 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Welcome back, Aditya',
-                style: kLightTitleText.copyWith(fontWeight: FontWeight.bold),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 20,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Text(
-                'YOUR BALANCE',
-                style: kSubTitleText,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //TODO: Replace with Account name from Google
+                    Text(
+                      'Welcome back, Aditya',
+                      style:
+                          kLightTitleText.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    CircleAvatar(
+                      //TODO: Replace with Account pic from Google
+                      backgroundColor: kPrimaryColor,
+                      child: Icon(
+                        Icons.account_box,
+                        color: kAccentWhite,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Text(
-                '78512633',
-                style: kLightTitleText,
+              // Padding(
+              //   padding: const EdgeInsets.only(left: 8.0),
+              //   child: Text(
+              //     'YOUR BALANCE',
+              //     style: kSubTitleText,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(left: 8.0),
+              //   child: Text(
+              //     '78512633',
+              //     style: kLightTitleText,
+              //   ),
+              // ),
+              SizedBox(
+                height: 20.0,
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.4,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        HomeWidgetTile(
+                          icon: Icons.payment,
+                          text: 'Send Money',
+                          color: kPrimaryColor,
+                          styleColor: Colors.white,
+                        ),
+                        HomeWidgetTile(
+                          icon: Icons.speaker_phone,
+                          text: 'Top Up',
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        HomeWidgetTile(
+                          icon: Icons.share,
+                          text: 'Transfer',
+                        ),
+                        HomeWidgetTile(
+                          icon: Icons.payments,
+                          text: 'Pay Bill',
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'This Month:',
+                  style: kLightTitleText,
+                ),
+              ),
+              Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      HomeWidgetTile(icon: Icons.payment, text: 'Send Money', color: kPrimaryColor, styleColor: Colors.white,),
-                      HomeWidgetTile(icon: Icons.speaker_phone, text: 'Top Up',),
-                    ],
+                  ExpenseWidget(
+                    imagePath: imageData[0],
+                    title: 'Mcdonalds',
+                    subtitle: 'Cafe and restaurant',
+                    expense: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      HomeWidgetTile(icon: Icons.share, text: 'Transfer',),
-                      HomeWidgetTile(icon: Icons.payments, text: 'Pay Bill',),
-                    ],
-                  )
+                  ExpenseWidget(
+                    imagePath: imageData[1],
+                    title: 'Iphone 12 Pro',
+                    subtitle: 'Phones and accessories',
+                    expense: 999,
+                  ),
+                  ExpenseWidget(
+                    imagePath: imageData[2],
+                    title: 'Subscription',
+                    subtitle: 'Cinema and entertainment',
+                    expense: 9,
+                  ),
+                  ExpenseWidget(
+                    imagePath: imageData[0],
+                    title: 'Mcdonalds',
+                    subtitle: 'Cafe and Restaurant',
+                    expense: 43,
+                  ),
                 ],
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+List imageData = [
+  'assets/images/mcdonalds.png',
+  'assets/images/apple.png',
+  'assets/images/netflix.png'
+];

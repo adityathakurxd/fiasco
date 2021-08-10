@@ -1,4 +1,5 @@
 import 'package:fiasco/constants.dart';
+import 'package:fiasco/screens/dashboardscreen.dart';
 import 'package:fiasco/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = const <Widget>[
     HomeScreen(),
-    Text('Dahboard'),
+    DashboardScreen(),
     Text('Blog'),
     Text('Profile Screen'),
   ];
