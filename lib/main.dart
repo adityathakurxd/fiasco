@@ -1,12 +1,13 @@
 import 'package:fiasco/constants.dart';
 import 'package:fiasco/screens/bottomnavigation.dart';
-import 'package:fiasco/screens/homescreen.dart';
-import 'package:fiasco/screens/signinscreen.dart';
 import 'package:fiasco/screens/splashscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:fiasco/screens/signinscreen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main()async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         '/': (context) => SplashScreen(),
-        '/signin': (context) => const SignInScreen(),
+        '/signin': (context) =>  SignInScreen(),
         '/bottomnav': (context) => BottomNavigation(),
       },
     );

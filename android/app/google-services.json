@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "266008222900",
+    "project_id": "fiasco-app",
+    "storage_bucket": "fiasco-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266008222900:android:7acf1f0a44d7e81e978be1",
+        "android_client_info": {
+          "package_name": "com.aditya.fiasco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266008222900-959ushpetviohohlmn9qkr2r6ghrq9b5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aditya.fiasco",
+            "certificate_hash": "0eb46f41730b22233e1cadc5bd2460945df21615"
+          }
+        },
+        {
+          "client_id": "266008222900-k1r7sfkmka5v489j97drs69cvpprdhe4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOtbFTnxbHRCbeUfqODWiOAaSBHcAcoXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266008222900-k1r7sfkmka5v489j97drs69cvpprdhe4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-
+import 'package:fiasco/rootwidget.dart';
 import '../constants.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
  }
 
  onDoneLoading() async {
-   Navigator.pushNamed(context, '/signin');
+   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => RootWidget()), (route) => false);
  }
 
  @override

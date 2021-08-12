@@ -1,8 +1,10 @@
+import 'package:fiasco/services/auth_manager.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  AuthenticationService authenticationService = AuthenticationService();
+  SignInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class SignInScreen extends StatelessWidget {
           Center(
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/bottomnav');
+                  authenticationService.onGoogleSignIn(context);
                 },
                 child: SizedBox(
                   width: 160,
