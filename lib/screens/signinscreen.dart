@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../constants.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -26,25 +25,25 @@ class SignInScreen extends StatelessWidget {
           ),
           Center(
             child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/bottomnav');
-                  },
-                  child: Container(
-                    width: 160,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text('Get Started'),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.arrow_forward_outlined)
-                        ],
-                      ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/bottomnav');
+                },
+                child: SizedBox(
+                  width: 160,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text('Get Started'),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Icon(Icons.arrow_forward_outlined)
+                      ],
                     ),
-                  )),
+                  ),
+                )),
           ),
         ],
       ),

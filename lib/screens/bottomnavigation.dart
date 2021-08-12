@@ -12,7 +12,7 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
-  final List<Widget> _widgetOptions = const <Widget>[
+  final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     DashboardScreen(),
     BlogScreen(),

@@ -1,10 +1,17 @@
 import 'package:fiasco/constants.dart';
-import 'package:fiasco/screens/widgets/expensewidgets.dart';
+import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:fiasco/screens/widgets/homewidgets.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool isVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -55,6 +62,21 @@ class HomeScreen extends StatelessWidget {
               // ),
               SizedBox(
                 height: 20.0,
+              ),
+              GestureDetector(
+                onTap: (){
+                  setState(() {
+                    isVisible = !isVisible;
+                  });
+                },
+                child: CreditCardWidget(
+                  cardNumber: '825688888888',
+                  expiryDate: '12/18/2001',
+                  cardHolderName: 'Aditya',
+                  cvvCode: '888',
+                  showBackView: isVisible,
+                  cardBgColor: kPrimaryColor,
+                ),
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
