@@ -6,7 +6,7 @@ A complete **Finance app** for family. *#SaveYouFiasco*
 
 
 ## Problem
-With quarantine, everthing moved online but **family finances are still isolated and untapped.** The consumption of online media has risen and so has online shopping. An average household spends over thousands of ruppees on shared WiFi bills, Netflix or other media subscription, Music, YouTube premiums, Electricity and Water bills.
+With quarantine, everything moved online but **family finances are still isolated and untapped**. The consumption of online media has risen and so has online shopping. An average household spends thousands of rupees on shared WiFi bills, Netflix or other media subscriptions, Music, YouTube premiums, Electricity, and Water bills.
 
 **How about one app to:**
 
