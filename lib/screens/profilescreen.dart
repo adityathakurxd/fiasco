@@ -1,6 +1,8 @@
 import 'package:fiasco/constants.dart';
 import 'package:fiasco/screens/widgets/familywidget.dart';
+import 'package:fiasco/services/auth_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -31,10 +33,18 @@ class ProfileScreen extends StatelessWidget {
                         size: 50,
                       ),
                       name: 'Add Member'),
-                  FamilyWidget(child: const CircleAvatar(
-                      maxRadius: 26,
-                      backgroundImage: NetworkImage(
-                          'https://media-exp1.licdn.com/dms/image/C4E03AQHjONHn6O0hBQ/profile-displayphoto-shrink_800_800/0/1621799912908?e=1634169600&v=beta&t=MJLyYdqyAwCcz9Le4UnehNlpwl455YqBhXTZV5jNGRA')), name: 'Aditya')
+                  // FamilyWidget(child: Consumer(builder: (context, watch, child) {
+                  //   final name = watch(userNameProvider);
+                  //   final pic = watch(userPicProvider);
+                  //   return pic.when(
+                  //       data: (value) => CircleAvatar(
+                  //           maxRadius: 26,
+                  //           backgroundImage: NetworkImage(
+                  //               '$value')),
+                  //       loading: () => const CircularProgressIndicator(),
+                  //       error: (error, stack) => const Text('Oops'));
+                  // }),
+                  //   name: name,)
                 ],
               ),
               const Spacer()
@@ -100,17 +110,24 @@ class ProfileScreen extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width,
                 ),
-                const CircleAvatar(
-                    maxRadius: 60,
-                    backgroundImage: NetworkImage(
-                        'https://media-exp1.licdn.com/dms/image/C4E03AQHjONHn6O0hBQ/profile-displayphoto-shrink_800_800/0/1621799912908?e=1634169600&v=beta&t=MJLyYdqyAwCcz9Le4UnehNlpwl455YqBhXTZV5jNGRA')),
+                Consumer(builder: (context, watch, child) {
+                  return watch(userPicProvider).when(
+                      data: (value) => CircleAvatar(
+                          maxRadius: 60,
+                          backgroundImage: NetworkImage(
+                              '$value')),
+                      loading: () => const CircularProgressIndicator(),
+                      error: (error, stack) => const Text('Oops'));
+                }),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'Aditya Thakur',
-                  style: kTitleText.copyWith(fontSize: 30),
-                ),
+                Consumer(builder: (context, watch, child) {
+                  return watch(userNameProvider).when(
+                      data: (value) => Text('$value', style: kTitleText.copyWith(fontSize: 30),),
+                      loading: () => const CircularProgressIndicator(),
+                      error: (error, stack) => const Text('Oops'));
+                }),
               ],
             ),
           ),

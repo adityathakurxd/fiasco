@@ -2,6 +2,17 @@ import 'package:fiasco/screens/bottomnavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final  authProvider = Provider<AuthenticationService>((ref) => AuthenticationService());
+
+final userNameProvider = FutureProvider((ref) async {
+  return await AuthenticationService().getUserName();
+});
+
+final userPicProvider = FutureProvider((ref) async {
+  return await AuthenticationService().getUserPic();
+});
 
 class AuthenticationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -45,10 +56,14 @@ class AuthenticationService {
     );
   }
 
-  getCurrentUser(){
-    User? user = _auth.currentUser;
-    return user;
+  Future<String?> getUserName() async {
+    return _auth.currentUser!.displayName;
   }
+
+  Future<String?> getUserPic() async {
+    return _auth.currentUser!.photoURL;
+  }
+
 
 // signout
   Future signOut() async {

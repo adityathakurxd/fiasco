@@ -1,7 +1,9 @@
 import 'package:fiasco/constants.dart';
+import 'package:fiasco/services/auth_manager.dart';
 import 'package:flutter_credit_card/credit_card_widget.dart';
 import 'package:fiasco/screens/widgets/homewidgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -29,12 +31,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    //TODO: Replace with Account name from Google
-                    Text(
-                      'Welcome back, Aditya',
-                      style:
-                          kLightTitleText.copyWith(fontWeight: FontWeight.bold),
-                    ),
+                    Consumer(builder: (context, watch, child) {
+                      return watch(userNameProvider).when(
+                          data: (value) => Text('Welcome, $value', style:
+                          kLightTitleText.copyWith(fontWeight: FontWeight.bold),),
+                          loading: () => const CircularProgressIndicator(),
+                          error: (error, stack) => const Text('Oops'));
+                    }),
                     CircleAvatar(
                       //TODO: Replace with Account pic from Google
                       backgroundColor: kPrimaryColor,
@@ -64,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20.0,
               ),
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   setState(() {
                     isVisible = !isVisible;
                   });
@@ -132,4 +135,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
